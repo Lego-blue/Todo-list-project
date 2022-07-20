@@ -1,0 +1,58 @@
+
+:root{
+    --height-search: 50px;
+    --width-input: 430px; 
+}
+
+.formInput{
+    display: flex;
+    align-items: center;
+    height:  var(--height-search);
+
+}
+.formInput input {
+    height: 100%;
+    width: var(--width-input);
+    margin-right: 18px;
+    padding: 14px 14px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    outline: none; 
+    background-color: transparent;
+    color: #fff;
+    font-size: 16px;
+}
+
+/* de focus input -> bo outline */
+.formInput input:focus{
+    border: 1px solid #919191;
+}
+
+input:required:valid {
+  background: rgb(154, 205, 50, 0.1);
+  border-color: yellowgreen;
+}
+
+.formInput .btn{
+    height: 100%;
+    display: block;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #3cb372;
+    cursor: pointer;
+    padding: 0 5px;
+    width: calc(100% - (var(--width-input) + 18px)); 
+}
+
+.btn .plus-icon{
+    font-size: 52px;
+    color: #3cb372;
+}
+
+.btn .plus-icon:hover{
+    color: #2e8b57;
+}
+.btn{
+    
+}

@@ -1,0 +1,127 @@
+
+:root{
+   
+}
+
+
+.list{
+    width: 100%;
+}
+.item{
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    /* k set height -> padding */
+    padding: 14px 0;
+    margin: 26px 0;
+    list-style: none;
+}
+
+/* div: chua text va icon */
+.check-task{
+   display: flex;
+ 
+   align-items: center;
+}
+
+/* chua icon  */
+.check-box{
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-size: 20px;
+    user-select: none;
+}
+
+/* chua text */
+.check-task  .text{  
+    margin-left: 20px;
+}
+
+
+.check-box input{
+    position: absolute;
+    opacity: 0;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+}
+
+
+/* span chua icon */
+.check-box span{
+    border: 1px solid #555;
+    height: 26px;
+    width: 26px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* check icon */
+.check-box span .check-icon{
+    font-size: 26px;
+    border-radius: 5px;
+    color: transparent;
+}
+
+/* khi hover */
+.check-box:hover input ~ span .check-icon{
+    background-color: #555;
+}
+
+/* Khi checked */
+.check-box input:checked ~ span .check-icon{
+    background-color: #555;
+}
+
+.check-box span::after{
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 14px;
+    background-color: lightgreen;
+    top: 29%;
+    left: 55%;
+    transform: rotate(45deg);
+    display: none;
+}
+
+.check-box span::before{
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 6px;
+    background-color: lightgreen;
+    top: 51%;
+    left: 30%;
+    transform: rotate(-45deg);
+    display: none;
+}
+
+.check-box input:checked ~ span::after,
+.check-box input:checked ~ span::before
+{
+    display: block;
+}
+
+
+.check-box input:checked ~  span .check-icon
+{
+    display: block;
+}
+
+.btn-delete{
+    width: 30px; 
+    /* chu y */
+    height: 30px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+
+.btn-delete .icon{
+   color: #ff616e;
+   font-size: 30px;
+}

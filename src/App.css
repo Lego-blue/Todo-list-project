@@ -1,0 +1,23 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+   width: 500px;
+}
+
+body{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; 
+    /* = 100% chieu cap khung nhin - hoac toan bo chieu cao man hinh */
+    /* vh là viết tắt của chiều cao khung nhìn của tầm nhìn */
+    padding: 50px;
+    background-color:  #1a1d21;
+}
+
+
