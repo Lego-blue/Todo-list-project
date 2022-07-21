@@ -5,7 +5,7 @@ function Form({ formInput, handleChangeFormInput, handleSubmit }) {
     return (
         <div>
             <form className="formInput" onSubmit={handleSubmit}>
-                <label htmlFor="taskInput"></label>
+                {/* <label htmlFor="taskInput"></label> */}
                 <input
                     required
                     type="text"

@@ -5,11 +5,34 @@ import CheckBoxOutlineBlankSharpIcon from "@mui/icons-material/CheckBoxOutlineBl
 
 
 
-function Todo() {
+function Todo({ tasks, handleComplete, handleRemove, handleRemoveAll  }) {
+    
+
     return (
-      
-            <ul className="list">
-                <li className="item">
+        <ul className="list">
+            {tasks.map((task, index) => (
+                    <li className="item" key = {index}>
+                        <div className="check-task">
+                            <div className="check-box">
+                                <input type="checkbox" onClick={() => handleComplete(index)}/>
+                                <span>
+                                    <CheckBoxOutlineBlankSharpIcon className="check-icon" />
+                                </span>
+                            </div>
+                            <span className="text">{task.tasks}</span>
+                        </div>
+                        <button className="btn-delete" onClick = {() => handleRemove(index)}>
+                            <DeleteIcon className="icon" />
+                        </button>
+                    </li>
+                ))}
+        </ul>
+    );
+}
+
+export default Todo;
+
+/* <li className="item">
                     <div className="check-task">
                         <div className="check-box">
                             <input type="checkbox" />
@@ -23,24 +46,4 @@ function Todo() {
                         <DeleteIcon className="icon" />
                     </button>
                 </li>
-                <li className="item">
-                    <div className="check-task">
-                        <div className="check-box">
-                            <input type="checkbox" />
-                            <span>
-                                <CheckBoxOutlineBlankSharpIcon className="check-icon" />
-                            </span>
-                        </div>
-                        <span className="text">egr</span>
-                    </div>
-
-                    <button className="btn-delete">
-                        <DeleteIcon className="icon" />
-                    </button>
-                </li>
-            </ul>
-    
-    );
-}
-
-export default Todo;
+ */

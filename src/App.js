@@ -6,7 +6,7 @@ import Todo from './components/todo/todo';
 
 function App() {
     const [value, setValue ] = useState('');
-    const [task, setTask] = useState([]);
+    const [tasks, setTask] = useState([]);
 
     const handleChangeFormInput =(e) =>{ //onChage cua child
         setValue(e.target.value);
@@ -16,24 +16,56 @@ function App() {
         e.preventDefault();
         if(value !== ''){
             const date = new Date().toLocaleDateString(); //chuyen date -> string
-            const newTask = {
+            const newTasks = {
                 date: date,
-                task: value,
+                tasks: value,
                 completed: false,
             };
-            setTask([...task, newTask]);
-            setValue(""); //khi set xong => ''
+            setTask([...tasks, newTasks]);
+          
+            setValue(""); //khi set xong => ' '
         }
     }
-  
+
+    //Complete(<li> - input)
+    const handleComplete = (index) => {
+        const newTasks = [...tasks];
+        if(newTasks[index].completed === false){
+            newTasks[index].completed = true;
+        }else{
+            newTasks[index].completed = false;
+        }
+        console.log(newTasks[index].completed);
+        setTask(newTasks);
+    }
+
+    //Remove item <li>
+    const handleRemove = (index) => {
+        const newTasks = [...tasks];
+        newTasks.splice(index, 1);
+        setTask(newTasks);
+    }
+
+    //Remove all
+    const handleRemoveAll = () =>{
+        const newTasks = [...tasks];
+        newTasks.remove();
+        setTask(newTasks);
+    }
+
     return (
         <div className="App">
             <Form
                 formInput={value}
                 handleChangeFormInput={handleChangeFormInput}
-                handleSubmit = {handleSubmit}
+                handleSubmit={handleSubmit}
             />
-            <Todo />
+            <Todo
+                tasks={tasks}
+                handleComplete={handleComplete}
+                handleRemove={handleRemove}
+                handleRemoveAll={handleRemoveAll}
+            />
         </div>
     );
 }
